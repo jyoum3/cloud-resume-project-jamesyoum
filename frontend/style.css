@@ -1,0 +1,148 @@
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styling */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    color: #2c3e50;
+    font-size: 2.8em;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+header p {
+    color: #7f8c8d;
+    font-size: 1.1em;
+    margin-top: 0;
+}
+
+header a {
+    color: #3498db;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: 600;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+/* Section styling */
+section {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+h2 {
+    color: #2c3e50;
+    font-size: 1.8em;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+h3 {
+    color: #34495e;
+    font-size: 1.4em;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+h4 {
+    color: #555;
+    font-size: 1.1em;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+/* List styling */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+}
+
+ul li::before {
+    content: '•';
+    color: #3498db;
+    position: absolute;
+    left: 0;
+    font-size: 1.2em;
+    line-height: 1;
+}
+
+/* Specific item styling */
+.experience-item, .project-item {
+    margin-bottom: 20px;
+}
+
+.experience-item p, .project-item p {
+    margin-bottom: 5px;
+}
+
+/* Skills category styling */
+.skills-category {
+    margin-bottom: 15px;
+}
+
+.skills-category h4 {
+    margin-bottom: 5px;
+    color: #34495e;
+    font-weight: 600;
+}
+
+.skills-category ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+}
+
+.skills-category ul li {
+    background-color: #e8f6fd;
+    color: #2980b9;
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: 0.9em;
+    white-space: nowrap;
+    position: relative;
+    padding-left: 12px; 
+}
+
+.skills-category ul li::before {
+    content: ''; 
+}

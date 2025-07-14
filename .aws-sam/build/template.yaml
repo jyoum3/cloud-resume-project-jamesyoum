@@ -1,0 +1,67 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: James Youm's Cloud Resume Visitor Counter API
+Parameters:
+  DynamoDBTableName:
+    Type: String
+    Description: Name of the DynamoDB table for the visitor counter
+    Default: ResumeVisitorCounter
+Resources:
+  VisitorCounterFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: ResumeVisitorCounterFunction
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.13
+      CodeUri: VisitorCounterFunction
+      MemorySize: 128
+      Timeout: 10
+      Policies:
+      - DynamoDBCrudPolicy:
+          TableName:
+            Ref: DynamoDBTableName
+      Environment:
+        Variables:
+          DYNAMODB_TABLE_NAME:
+            Ref: DynamoDBTableName
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /visits
+            Method: any
+            RestApiId:
+              Ref: VisitorCounterApi
+    Metadata:
+      SamResourceId: VisitorCounterFunction
+  VisitorCounterApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: ResumeVisitorCounterAPI
+      StageName: Prod
+      Cors:
+        AllowMethods: '''GET,POST,OPTIONS'''
+        AllowHeaders: '''Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'''
+        AllowOrigin: '''https://resumejamesyoum.com'''
+      DefinitionBody:
+        swagger: '2.0'
+        info:
+          title:
+            Fn::Sub: ${AWS::StackName}-VisitorCounterAPI
+        paths:
+          /visits:
+            x-amazon-apigateway-any-method:
+              produces:
+              - application/json
+              responses: {}
+              x-amazon-apigateway-integration:
+                uri:
+                  Fn::Sub: arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${VisitorCounterFunction.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                type: aws_proxy
+Outputs:
+  VisitorCounterApiUrl:
+    Description: API Gateway endpoint URL for Visitor Counter
+    Value:
+      Fn::Sub: https://${VisitorCounterApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/visits
