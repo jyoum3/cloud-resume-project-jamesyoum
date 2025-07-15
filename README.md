@@ -1,3 +1,4 @@
+<!-- -->
 James Youm's Cloud Resume Project
 This project demonstrates a comprehensive understanding of cloud infrastructure, serverless architecture, and CI/CD pipelines by deploying a personal resume website with a dynamic visitor counter on AWS. It showcases a full-stack approach, from static website hosting to a robust serverless API.
 
