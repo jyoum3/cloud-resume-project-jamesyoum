@@ -21,7 +21,7 @@
 
         <section id="summary">
             <h2>Objective/Summary</h2>
-            <p>Highly motivated and detail-oriented professional with a strong foundation in IT and cloud fundamentals, combined with invaluable clinical experience, seeking an internship or entry-level position in IT or healthcare technology. Eager to apply problem-solving, technical troubleshooting, systems thinking, and rapid learning abilities to optimize technology and enhance operational efficiency.</p>
+            <p>Highly motivated and detail-oriented Cloud Computing student with a strong foundation in IT and cloud fundamentals, highlighted by 10+ industry certifications across CompTIA, AWS, and Azure. Currently pursuing a second bachelor's degree with a projected graduation of Spring 2026, I am seeking an internship or entry-level position in a cloud environment. I am eager to apply advanced problem-solving, technical troubleshooting, and systems thinking to optimize technology and enhance operational efficiency.</p>
         </section>
 
         <section id="education">
@@ -29,9 +29,6 @@
             <div class="education-item">
                 <h3>Western Governors University, UT</h3>
                 <h4>Bachelor of Science in Cloud Computing | Senior, Expected Graduation: Spring 2026</h4>
-                <ul>
-                    <li>Relevant Coursework: Cloud Foundations, Network and Security, Database Management, Python for IT Automation, Scripting and Automation</li>
-                </ul>
             </div>
             <div class="education-item">
                 <h3>University of Pittsburgh, PA</h3>
@@ -42,91 +39,44 @@
         <section id="certifications">
             <h2>Certifications</h2>
             <ul>
-                <li>CompTIA A+</li>
-                <li>CompTIA Network+</li>
-                <li>CompTIA Project+</li>
-                <li>CompTIA Security+</li>
-                <li>CompTIA Cloud+</li>
-                <li>AWS Certified Cloud Practitioner</li>
-                <li>ITIL 4 Foundation</li>
-                <li>Azure Fundamentals|AZ-900</li>
+                <li><b>AWS</b>: Certified Cloud Practitioner | Solutions Architect Associate</li>
+                <li><b>Microsoft Azure</b>: Fundamentals - AZ-900 | Administrator Associate - AZ-104 | Developer Associate - AZ-204</li>
+                <li><b>CompTIA</b>: A+ | Network+ | Security+ | Cloud+ | Project+</li>
+                <li><b>Additional:</b> ITIL 4 Foundation, LPI Linux Essentials</li>
             </ul>
         </section>
 
-        <section id="skills">
-            <h2>Skills</h2>
-            <div class="skills-category">
-                <h4>Cloud Platforms:</h4>
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project-item">
+                <h3>EMS Handoff Dashboard - Logical Architecture (<em>Development In-Progress</em>)</h3>
+                <p>In high-volume emergency departments, clinicians often operate within a critical information vacuum regarding incoming ambulance traffic. Currently, hospital staff have no visibility into the number of incoming patients or their specific medical complaints unless a patient is "actively coding". This lack of data leads to reactive resource bottlenecks and staffing surges only after patients arrive. I designed this real-time dashboard to eliminate this blind spot, providing the "luxury of anticipation" by transforming incoming dispatch data into actionable insights. This allows clinical leadership to proactively allocate staff and resources, ensuring the department is prepared well before the ambulance reached the emergency department doors.</p>
+                <h4><b>Logical Architecture and Technical Flow</b></h4>
                 <ul>
-                    <li>AWS (EC2, S3, VPC, IAM)</li>
-                    <li>Azure (Familiarity)</li>
-                    <li>Google Cloud Platform (Familiarity)</li>
+                    <li><b>Data Ingestion</b>: Dispatch data is securely processed via <em>Azure API Gateway</em> and <em>Azure Functions</em>, providing an entry point for real-time patient updates.</li>
+                    <li><b>Scalable Persistence</b>: Data is committed to <em>Azure Cosmos DB</em>, partitioned by ED-ID to ensure high performance and strict data isolation across multiple emergency department sites within the hospital system.</li>
+                    <li><b>Real-Time Push Logic</b>: A <em>Change Feed Processor</em> triggers a secondary function upon successful data entry, which utilizes <em>Azure SignalR</em> to push instantaneous updates directly to the hospital-facing dashboard.</li>
+                    <li><b>Outcome</b>: By introducing real-time visibility where an information vacuum previously existed, clinical leadership gains a zero-latency view of incoming volume and acuity - transforming a reactive, blind intake process into a proactive, event-driven workflow.</li>
                 </ul>
+                <p><b>Technical Stack</b>: Azure Functions, CosmosDB, SignalR, API Gateway, PowerShell, Python</p>
             </div>
-            <div class="skills-category">
-                <h4>Operating Systems:</h4>
-                <ul>
-                    <li>Linux (Ubuntu)</li>
-                    <li>Windows OS</li>
-                </ul>
+            <div class="project-item">
+                <h3>Azure Resource Janitor Script</h3>
+                <p>Developed a comprehensive automation suite to manage cloud sprawl and optimize subscription costs by identifying and decommissioning unused Azure resources. This project addresses the common challenge of "ghost costs" associated with unattached disks and abandoned testing environments.</p>
+                <p><b>Technical Stack:</b> PowerShell, Azure, Git, GitHub, Cloud Governance & Cost Management Logic</p>
+                <p><a href="https://github.com/jyoum3/Azure-Resource-Janitor" target="_blank">View Project on GitHub</a></p>
             </div>
-            <div class="skills-category">
-                <h4>Scripting/Programming:</h4>
-                <ul>
-                    <li>Python (Basic/Intermediate)</li>
-                    <li>Bash</li>
-                    <li>SQL</li>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                </ul>
+            <div class="project-item">
+                <h3>Personal Cloud Resume Website Deployment</h3>
+                <p>This Cloud Resume Project demonstrates full-stack cloud proficiency by hosting a static HTML/CSS/JavaScript frontend on AWS S3, delivered globally via CloudFront and secured with Route 53/ACM. A serverless Python Lambda function, exposed via Amazon API Gateway, leverages DynamoDB for a dynamic visitor counter. The entire architecture showcases skills in cloud infrastructure, serverless development, secure web delivery, and automated CI/CD with Git/GitHub.</p>
+                <p><b>Technical Stack:</b> HTML, CSS, JavaScript, Amazon S3, CloudFront, Route 53, AWS ACM, Python Lambda, Amazon API Gateway, Amazon DynamoDB, AWS IAM, Git/GitHub, CI/CD</p>
+                <p><a href="https://github.com/jyoum3/cloud-resume-project-jamesyoum" target="_blank">View Project on GitHub</a></p>
             </div>
-            <div class="skills-category">
-                <h4>Networking:</h4>
-                <ul>
-                    <li>TCP/IP</li>
-                    <li>DNS</li>
-                    <li>VPN</li>
-                    <li>Network Troubleshooting</li>
-                    <li>CompTIA Network+ concepts</li>
-                </ul>
-            </div>
-            <div class="skills-category">
-                <h4>Security:</h4>
-                <ul>
-                    <li>Identity and Access Management (IAM)</li>
-                    <li>Security Best Practices</li>
-                    <li>CompTIA Security+ concepts</li>
-                </ul>
-            </div>
-            <div class="skills-category">
-                <h4>Tools & Technologies:</h4>
-                <ul>
-                    <li>Docker</li>
-                    <li>Kubernetes (Basic/Familiarity)</li>
-                    <li>Git/GitHub (Version Control)</li>
-                    <li>MS Office Suite</li>
-                </ul>
-            </div>
-            <div class="skills-category">
-                <h4>Troubleshooting & Operations:</h4>
-                <ul>
-                    <li>Technical Troubleshooting</li>
-                    <li>System Monitoring</li>
-                    <li>Root Cause Analysis</li>
-                    <li>Incident Response (conceptual)</li>
-                </ul>
-            </div>
-            <div class="skills-category">
-                <h4>Soft Skills:</h4>
-                <ul>
-                    <li>Problem-Solving</li>
-                    <li>Critical Thinking</li>
-                    <li>Workflow Optimization</li>
-                    <li>Communication (Written & Verbal)</li>
-                    <li>Team Collaboration</li>
-                    <li>Time Management</li>
-                    <li>Adaptability</li>
-                </ul>
+            <div class="project-item">
+                <h3>PowerShell Automation Scripts for IT Operations</h3>
+                <p>Developed a collection of PowerShell scripts to automate common IT operational tasks. For one task, created a comprehensive system administration menu script providing a user-friendly interface for file management and real-time system monitoring (CPU/memory usage, process lists). For a second task, developed targeted automation scripts for infrastructure management: one for Active Directory to handle the recreation of organizational units and bulk user provisioning from a CSV, and another for SQL Server to automate the complete restoration of a database, including table creation and data import.</p>
+                <p><b>Technical Stack:</b> PowerShell, Active Directory, SQL Server, Windows Server Administration</p>
+                <p><a href="https://github.com/jyoum3/PowerShell-Admin-Scripts" target="_blank">View Project on GitHub</a></p>
             </div>
         </section>
 
@@ -153,27 +103,59 @@
             </div>
         </section>
 
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="project-item">
-                <h3>Personal Cloud Resume Website Deployment</h3>
-                <p>This Cloud Resume Project demonstrates full-stack cloud proficiency by hosting a static HTML/CSS/JavaScript frontend on AWS S3, delivered globally via CloudFront and secured with Route 53/ACM. A serverless Python Lambda function, exposed via Amazon API Gateway, leverages DynamoDB for a dynamic visitor counter. The entire architecture showcases skills in cloud infrastructure, serverless development, secure web delivery, and automated CI/CD with Git/GitHub.</p>
-                <p><b>Technologies Used:</b> HTML, CSS, JavaScript, Amazon S3, CloudFront, Route 53, AWS ACM, Python Lambda, Amazon API Gateway, Amazon DynamoDB, AWS IAM, Git/GitHub, CI/CD</p>
-                <p><a href="https://github.com/jyoum3/cloud-resume-project-jamesyoum" target="_blank">View Project on GitHub</a></p>
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-category">
+                <h4>Cloud Platforms</h4>
+                <ul>
+                    <li><strong>AWS:</strong> Lambda (Serverless), S3, VPC, IAM, EC2</li>
+                    <li><strong>Azure Compute & Logic:</strong> Azure Functions, API Gateway, Azure SDKs</li>
+                    <li><strong>Azure Messaging & Events:</strong> Event Grid, Event Hub, Service Bus</li>
+                    <li><strong>Azure Data & Security:</strong> CosmosDB, Blob Storage, Entra ID (IAM), Key Vault</li>
+                </ul>
             </div>
-            <div class="project-item">
-                <h3>PowerShell Automation Scripts for IT Operations</h3>
-                <p>Developed a collection of PowerShell scripts to automate common IT operational tasks. For one task, created a comprehensive system administration menu script providing a user-friendly interface for file management and real-time system monitoring (CPU/memory usage, process lists). For a second task, developed targeted automation scripts for infrastructure management: one for Active Directory to handle the recreation of organizational units and bulk user provisioning from a CSV, and another for SQL Server to automate the complete restoration of a database, including table creation and data import.</p>
-                <p><b>Technologies Used:</b> PowerShell, Active Directory, SQL Server, Windows Server Administration</p>
-                <p><a href="https://github.com/jyoum3/PowerShell-Admin-Scripts" target="_blank">View Project on GitHub</a></p>
+            <div class="skills-category">
+                <h4>Automation & Programming</h4>
+                <ul>
+                    <li><strong>Scripting:</strong> PowerShell (Cloud Automation), Bash, Python</li>
+                    <li><strong>Web:</strong> HTML, CSS3</li>
+                    <li><strong>Version Control:</strong> Git, GitHub (CI/CD workflows)</li>
+                </ul>
+            </div>
+            <div class="skills-category">
+                <h4>Systems & Networking</h4>
+                <ul>
+                    <li><strong>Operating Systems:</strong> Linux (Ubuntu/Debian), Windows OS</li>
+                    <li><strong>Networking:</strong> TCP/IP, DNS, VPN, Network Troubleshooting</li>
+                    <li><strong>Security:</strong> Identity & Access Management (IAM), Cloud Security Best Practices</li>
+                </ul>
+            </div>
+            <div class="skills-category">
+            <h4>DevOps & Operations</h4>
+                <ul>
+                    <li><strong>Containers:</strong> Docker, Kubernetes (Foundational)</li>
+                    <li><strong>Monitoring:</strong> System Monitoring, Root Cause Analysis, Incident Response</li>
+                    <li><strong>Methodologies:</strong> ITIL 4 Framework, Project Management (Project+)</li>
+                </ul>
+            </div>
+            <div class="skills-category">
+                <h4>Core Competencies</h4>
+                <ul>
+                    <li>Rapid Learning & Adaptability</li>
+                    <li>Workflow Optimization & Systems Thinking</li>
+                    <li>Technical Problem-Solving & Troubleshooting</li>
+                    <li>Team Collaboration & Written Communication</li>
+                </ul>
             </div>
         </section>
+
         <section id="visitor-counter-section" style="margin-top: 40px; padding: 20px; border-top: 1px solid #ecf0f1; text-align: center;">
             <h2>Cloud Resume Visitors</h2>
             <p>This resume has been viewed:</p>
             <div class="visitor-count" id="visitorCount" style="font-size: 2.2em; font-weight: 700; color: #27ae60;">Loading...</div>
             <p>times.</p>
         </section>
+
     </div>
     <script>
 
