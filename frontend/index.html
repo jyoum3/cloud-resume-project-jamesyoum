@@ -11,28 +11,29 @@
     <div class="container">
         <header>
             <h1>James Youm</h1>
-            <p><i>jamesyoum.jy@gmail.com</i></p>
+            <p>jamesyoum.jy@gmail.com</p>
             <p>
                 <a href="https://www.linkedin.com/in/james-youm-661a85310/" target="_blank">LinkedIn</a> |
-                <a href="https://github.com/jyoum3" target="_blank">GitHub</a>
-              
+                <a href="https://github.com/jyoum3" target="_blank">GitHub</a> |
+                <a href="https://www.credly.com/users/james-youm" target="_blank">Credly</a>
             </p>
         </header>
 
         <section id="summary">
-            <h2>Objective/Summary</h2>
-            <p>Highly motivated and detail-oriented Cloud Computing student with a strong foundation in IT and cloud fundamentals, highlighted by 10+ industry certifications across CompTIA, AWS, and Azure. Currently pursuing a second bachelor's degree with a projected graduation of Spring 2026, I am seeking an internship or entry-level position in a cloud environment. I am eager to apply advanced problem-solving, technical troubleshooting, and systems thinking to optimize technology and enhance operational efficiency.</p>
+            <h2>Professional Summary</h2>
+            <p>Multi-certified Cloud Computing graduate (WGU, B.S., 2026) with a foundation of 10+ industry certifications across AWS, Azure, and CompTIA. To apply this knowledge in a practical context, I have designed and built independent projects spanning full-stack serverless applications, enterprise cloud architecture design, and infrastructure automation scripting. Backed by five years of professional clinical experience in a high-volume emergency department, I bring strong cross-functional communication skills and the ability to perform under pressure. I am eager to carry this combination of technical foundation and real-world operational experience into a technical role, and I am committed to contributing meaningfully while growing alongside an experienced team.
+            </p>
         </section>
 
         <section id="education">
             <h2>Education</h2>
             <div class="education-item">
                 <h3>Western Governors University, UT</h3>
-                <h4>Bachelor of Science in Cloud Computing | Senior, Expected Graduation: Spring 2026</h4>
+                <h4>Bachelor of Science in Cloud Computing | June 2026</h4>
             </div>
             <div class="education-item">
                 <h3>University of Pittsburgh, PA</h3>
-                <h4>Bachelor of Science in Natural Sciences | Graduated: December 2019</h4>
+                <h4>Bachelor of Science in Natural Sciences | December 2019</h4>
             </div>
         </section>
 
@@ -49,32 +50,54 @@
         <section id="projects">
             <h2>Projects</h2>
             <div class="project-item">
-                <h3>EMS Handoff Dashboard - Logical Architecture (<em>Development In-Progress</em>)</h3>
-                <p>In high-volume emergency departments, clinicians often operate within a critical information vacuum regarding incoming ambulance traffic. Currently, hospital staff have no visibility into the number of incoming patients or their specific medical complaints unless a patient is "actively coding". This lack of data leads to reactive resource bottlenecks and staffing surges only after patients arrive. I designed this real-time dashboard to eliminate this blind spot, providing the "luxury of anticipation" by transforming incoming dispatch data into actionable insights. This allows clinical leadership to proactively allocate staff and resources, ensuring the department is prepared well before the ambulance reaches the emergency department doors.</p>
-                <h4><b>Logical Architecture and Technical Flow</b></h4>
+                <h3>Real-Time EMS Handoff Application (Full-Stack Cloud Project)</h3>
+                <h4><b>Azure Serverless Pipeline — Real-Time EMS-to-ED Clinical Data Streaming</b></h4>
+                <p>EMS crews routinely transport critically ill patients to Emergency Departments with no structured channel for clinical data to travel ahead of them. ED staff have no advance visibility into vitals, administered medications, ESI triage level, or required resources until the gurney arrives — forcing a reactive workflow that creates intake bottlenecks and delays resource activation. To close this gap, I designed and built an end-to-end serverless data pipeline that streams pre-hospital patient data from EMS field providers to clinical ED dashboards in real time. The hospital dashboard consolidates incoming patient data into clear, actionable insights, giving clinical leadership the visibility needed to manage staffing and resources before EMS arrival.</p>
                 <ul>
-                    <li><b>Data Ingestion</b>: Dispatch data is securely processed via <em>Azure API Gateway</em> and <em>Azure Functions</em>, providing an entry point for real-time patient updates.</li>
-                    <li><b>Scalable Persistence</b>: Data is committed to <em>Azure Cosmos DB</em>, partitioned by ED-ID to ensure high performance and strict data isolation across multiple emergency department sites within the hospital system.</li>
-                    <li><b>Real-Time Push Logic</b>: A <em>Change Feed Processor</em> triggers a secondary function upon successful data entry, which utilizes <em>Azure SignalR</em> to push instantaneous updates directly to the hospital-facing dashboard.</li>
-                    <li><b>Outcome</b>: By introducing real-time visibility where an information vacuum previously existed, clinical leadership gains a zero-latency view of incoming volume and acuity &mdash; transforming a reactive, blind intake process into a proactive, event-driven workflow.</li>
+                    <li><b>Type-Safe Frontends</b>: Developed responsive <em>Progressive Web Apps (PWAs)</em> using <em>React 18</em> and <em>TypeScript</em> (Vite) for both the EMS-facing patient ingestion application and the hospital-facing clinical dashboard.</li>                    
+                    <li><b>Data Validation & PHI Ingestion</b>: Engineered a backend ingestion engine using <em>Azure Functions</em> and <em>Pydantic</em> to enforce strict schema validation on incoming payloads containing PHI prior to database persistence.</li>
+                    <li><b>Event-Driven Database Pipeline</b>: Configured Azure Cosmos DB as the primary data store, leveraging the <em>Cosmos DB Change Feed</em> to instantly trigger serverless event handlers the moment an EMS payload is successfully written.</li>
+                    <li><b>Real-Time WebSocket Streaming</b>: Integrated <em>Azure SignalR</em> to capture change feed events and broadcast live, low-latency updates over WebSockets directly to the hospital-facing dashboard PWA, removing any need for manual data fetching.</li>
                 </ul>
-                <p><b>Technical Stack</b>: Azure Functions, CosmosDB, SignalR, API Gateway, PowerShell, Python</p>
+                <p><b>Technical Stack</b>: React 18, TypeScript, Vite, Python, Pydantic, Azure Cosmos DB, Azure Functions, Azure SignalR, Azure Blob Storage, Azure Static Web Apps, HL7 FHIR</p>
+                <p>
+                    <a href="https://github.com/jyoum3/ems-handoff-app" target="_blank">View Project on GitHub</a> |
+                    <a href="https://red-cliff-065686a0f.4.azurestaticapps.net" target="_blank">EMS Medic PWA</a> |
+                    <a href="https://gray-river-0aac47b0f.2.azurestaticapps.net" target="_blank">Hospital Dashboard</a>
+                </p>
+                <p><em>Live demo requires Entra ID login — credentials available on request.</em></p>
             </div>
             <div class="project-item">
-                <h3>Azure Resource Janitor Script</h3>
-                <p>Developed a comprehensive automation suite to manage cloud sprawl and optimize subscription costs by identifying and decommissioning unused Azure resources. This project addresses the common challenge of "ghost costs" associated with unattached disks and abandoned testing environments.</p>
-                <p><b>Technical Stack:</b> PowerShell, Azure, Git, GitHub, Cloud Governance & Cost Management Logic</p>
-                <p><a href="https://github.com/jyoum3/Azure-Resource-Janitor" target="_blank">View Project on GitHub</a></p>
+                <h3>Enterprise Healthcare Interoperability Middleware Design (WGU Capstone)</h3>
+                <h4><b>Multi-Cloud Architecture Design — EMS-to-ED Platform at Enterprise Scale</b></h4>
+                    <p>Designed and documented a production-scale enterprise architecture extending the EMS Handoff App concept from a single-agency pilot to a multi-tenant, multi-cloud healthcare interoperability platform. This capstone project focuses on the architectural design decisions required to run shared healthcare infrastructure at city scale — multiple EMS agencies, multiple hospital systems, and strict per-tenant PHI data isolation — rather than implementation of a deployed system.</p>
+                <ul>
+                    <li><b>Pub/Sub Routing Architecture</b>: Designed a multi-tenant Azure Service Bus topology with per-hospital topics and per-ED subscriptions using SQL filter rules, routing NEMSIS payloads to the correct hospital system and emergency department without cross-tenant data exposure.</li>
+                    <li><b>Zero Trust Security Posture</b>: Architected a private-by-default Azure VNet topology with private endpoints on all PaaS services, system-assigned Managed Identities with least-privilege RBAC, customer-managed key (CMK) encryption at rest via Azure Key Vault, and Azure Policy guardrails enforced at the management group level.</li>
+                    <li><b>Cross-Cloud Disaster Recovery</b>: Designed a three-tier AWS warm standby architecture — always-active S3 Object Lock HIPAA compliance archive, Route 53 DNS health-check failover (~2.5 min RTO) to a pre-provisioned AWS Lambda/SQS/HealthLake pipeline, and a Phase 2 dashboard continuity layer using AWS Amplify and Amazon Cognito.</li>
+                    <li><b>FHIR ETL Pipeline Design</b>: Specified a NEMSIS v3.5.0 → FHIR R4 transformation engine with a per-hospital schema registry pattern, composite idempotency key enforcement, and HL7 R4 conformance validation gating before any FHIR resource reaches the store.</li>
+                </ul>
+                <p><b>Architectural Components (System Design)</b>: Azure Service Bus, Azure API Management, Azure Functions, Azure Health Data Services (FHIR R4), Azure Cosmos DB, Azure Key Vault, Azure SignalR, Microsoft Sentinel, AWS S3, AWS Lambda, Amazon SNS/SQS, AWS HealthLake, Amazon Route 53, HL7 FHIR R4, NEMSIS v3.5.0</p>
+                <p><a href="https://github.com/jyoum3/enterprise-healthcare-interoperability-middleware-design" target="_blank">View Architecture Documentation on GitHub</a></p>
             </div>
             <div class="project-item">
                 <h3>Personal Cloud Resume Website Deployment</h3>
-                <p>This Cloud Resume Project demonstrates full-stack cloud proficiency by hosting a static HTML/CSS/JavaScript frontend on AWS S3, delivered globally via CloudFront and secured with Route 53/ACM. A serverless Python Lambda function, exposed via Amazon API Gateway, leverages DynamoDB for a dynamic visitor counter. The entire architecture showcases skills in cloud infrastructure, serverless development, secure web delivery, and automated CI/CD with Git/GitHub.</p>
-                <p><b>Technical Stack:</b> HTML, CSS, JavaScript, Amazon S3, CloudFront, Route 53, AWS ACM, Python Lambda, Amazon API Gateway, Amazon DynamoDB, AWS IAM, Git/GitHub, CI/CD</p>
+                <h4><b>AWS Serverless Architecture — Static Frontend, Lambda Backend, and CI/CD Pipeline</b></h4>
+                <p>Demonstrates full-stack cloud proficiency by hosting a static HTML/CSS/JavaScript frontend on AWS S3, delivered globally via CloudFront and secured with Route 53/ACM. A serverless AWS Lambda function (Python), exposed via Amazon API Gateway, leverages DynamoDB for a dynamic visitor counter. The architecture is fully automated with GitHub Actions CI/CD pipelines for both frontend and backend deployments.</p>                
+                <p><b>Technical Stack:</b> HTML, CSS, JavaScript, Amazon S3, Amazon CloudFront, Amazon Route 53, AWS ACM, AWS Lambda (Python), Amazon API Gateway, Amazon DynamoDB, AWS IAM, AWS SAM, GitHub Actions</p>
                 <p><a href="https://github.com/jyoum3/cloud-resume-project-jamesyoum" target="_blank">View Project on GitHub</a></p>
             </div>
             <div class="project-item">
+                <h3>Azure Resource Janitor Script</h3>
+                <h4><b>PowerShell Cloud Governance — Automated Orphan Detection and Cost Optimization</b></h4>
+                <p>Developed a PowerShell automation suite to maintain cloud hygiene and reduce costs by identifying and decommissioning orphaned or expired Azure resources — including unattached managed disks and resource groups that have exceeded their expiration tag. Built with a <em>dry-run toggle</em> to safely preview all deletions before execution and <em>tag-based protection</em> to ensure critical resources are never accidentally removed.</p>                
+                <p><b>Technical Stack:</b> PowerShell, Az PowerShell Module, Azure Resource Manager, Git, GitHub</p>                
+                <p><a href="https://github.com/jyoum3/Azure-Resource-Janitor" target="_blank">View Project on GitHub</a></p>
+            </div>
+            <div class="project-item">
                 <h3>PowerShell Automation Scripts for IT Operations</h3>
-                <p>Developed a collection of PowerShell scripts to automate common IT operational tasks. For one task, created a comprehensive system administration menu script providing a user-friendly interface for file management and real-time system monitoring (CPU/memory usage, process lists). For a second task, developed targeted automation scripts for infrastructure management: one for Active Directory to handle the recreation of organizational units and bulk user provisioning from a CSV, and another for SQL Server to automate the complete restoration of a database, including table creation and data import.</p>
+                <h4><b>Windows Server Automation — Active Directory, SQL Server, and System Administration</b></h4>
+                <p>Developed a collection of PowerShell scripts to automate common IT administrative workflows. Built an interactive, menu-driven system administration script for file management and real-time server monitoring (CPU/memory usage, process inspection). Additionally engineered targeted infrastructure automation scripts: an Active Directory script that manages OU lifecycle and bulk-provisions users from a CSV file, and a SQL Server script that automates complete database restoration, table creation, and data import.</p>                
                 <p><b>Technical Stack:</b> PowerShell, Active Directory, SQL Server, Windows Server Administration</p>
                 <p><a href="https://github.com/jyoum3/PowerShell-Admin-Scripts" target="_blank">View Project on GitHub</a></p>
             </div>
@@ -109,8 +132,7 @@
                 <h4>Cloud Platforms</h4>
                 <ul>
                     <li><strong>AWS:</strong> Lambda (Serverless), S3, VPC, IAM, EC2</li>
-                    <li><strong>Azure Compute & Logic:</strong> Azure Functions, API Gateway, Azure SDKs</li>
-                    <li><strong>Azure Messaging & Events:</strong> Event Grid, Event Hub, Service Bus</li>
+                    <li><strong>Azure Compute & Logic:</strong> Azure Functions, Azure API Management (APIM), Azure SDKs</li>                    <li><strong>Azure Messaging & Events:</strong> Event Grid, Event Hub, Service Bus</li>
                     <li><strong>Azure Data & Security:</strong> CosmosDB, Blob Storage, Entra ID (IAM), Key Vault</li>
                 </ul>
             </div>
@@ -118,8 +140,7 @@
                 <h4>Automation & Programming</h4>
                 <ul>
                     <li><strong>Scripting:</strong> PowerShell (Cloud Automation), Bash, Python</li>
-                    <li><strong>Web:</strong> HTML, CSS3</li>
-                    <li><strong>Version Control:</strong> Git, GitHub (CI/CD workflows)</li>
+                    <li><strong>Web:</strong> React, TypeScript, HTML, CSS</li>                    <li><strong>Version Control:</strong> Git, GitHub (CI/CD workflows)</li>
                 </ul>
             </div>
             <div class="skills-category">
