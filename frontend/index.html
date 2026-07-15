@@ -50,6 +50,21 @@
         <section id="projects">
             <h2>Projects</h2>
             <div class="project-item">
+                <h3>AIScribe - AI-Powered Telehealth Documentation Platform</h3>
+                <h4><b>Multi-Model AI Pipeline - Automated SOAP Note Generation with HL7 v2 EHR Integration</b></h4>
+                <p>I designed and built AIScribe as a full-stack engineering showcase to bridge my clinical background with enterprise healthcare integration. The primary purpose of this project was to dive deep into the technologies that power modern hospital interoperability — specifically Mirth Connect, HL7 messaging standards, and FHIR APIs — while exploring how to safely introduce AI transcription into a clinical data pipeline. AIScribe simulates a real-world integration loop: it takes a telehealth provider's raw audio session, generates a structured clinical SOAP note using multi-model AI, and securely routes the validated document across our network perimeter into an isolated, simulated EMR database.</p>
+                <ul>
+                    <li><b>Multi-Model AI Transcription Pipeline</b>: Engineered an end-to-end pipeline using <em>OpenAI Whisper</em> for transcription and <em>Anthropic Claude</em> for structured SOAP note generation, enforced by a three-step JSON schema validation layer.</li>
+                    <li><b>HL7 v2 EHR Integration</b>: Integrated <em>Mirth Connect</em> as a clinical messaging broker to transform application JSON into structurally compliant <em>HL7 MDM^T02 and MDM^T04 messages</em>, routing them securely to a simulated EMR database.</li>
+                    <li><b>FHIR R4 Schedule Sync</b>: Implemented a mock <em>FHIR R4</em> gateway that translates raw EMR database records into compliant FHIR Bundle resources to sync provider schedules into a local application cache.</li>
+                    <li><b>Immutable Note Versioning</b>: Developed an EMR amendment workflow where signed clinical records are never modified in-place, utilizing a versioned database schema with an "is_current" flag pattern managed through Mirth.</li>
+                    <li><b>PHI Security &amp; Compliance</b>: Implemented transient, in-memory audio processing that avoids disk writes, enforced provider-scoped SQL isolation to prevent multi-tenant data leaks, and built asynchronous HIPAA audit logging.</li>
+                    <li><b>Idempotent Note Submission</b>: Built a client-server idempotency guard utilizing UUID4 client-side keys and backend database uniqueness constraints to eliminate duplicate EMR writes from network drops or rapid double-clicks.</li>
+                </ul>
+                <p><b>Technical Stack</b>: React 18, Vite 5, Node.js 18, Express 4, PostgreSQL 15, OpenAI Whisper API, Anthropic Claude API, Mirth Connect 4.x, HL7 v2, FHIR R4, JWT, bcrypt, Docker Compose</p>
+                <p><a href="https://github.com/jyoum3/AIScribe-Telehealth-Transcription" target="_blank">View Project on GitHub</a></p>
+            </div>
+            <div class="project-item">
                 <h3>Real-Time EMS Handoff Application (Full-Stack Cloud Project)</h3>
                 <h4><b>Azure Serverless Pipeline — Real-Time EMS-to-ED Clinical Data Streaming</b></h4>
                 <p>EMS crews routinely transport critically ill patients to Emergency Departments with no structured channel for clinical data to travel ahead of them. ED staff have no advance visibility into vitals, administered medications, ESI triage level, or required resources until the gurney arrives — forcing a reactive workflow that creates intake bottlenecks and delays resource activation. To close this gap, I designed and built an end-to-end serverless data pipeline that streams pre-hospital patient data from EMS field providers to clinical ED dashboards in real time. The hospital dashboard consolidates incoming patient data into clear, actionable insights, giving clinical leadership the visibility needed to manage staffing and resources before EMS arrival.</p>
